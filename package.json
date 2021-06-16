@@ -1,7 +1,7 @@
 {
-  "name": "ts-rest-template",
+  "name": "auth-ts-rest-template",
   "version": "1.0.0",
-  "description": "template for rest api developed with nodejs and typescript",
+  "description": "template for rest api with jwt auth developed with nodejs and typescript",
   "main": "index.js",
   "scripts": {
     "start": "node build/index.js",
