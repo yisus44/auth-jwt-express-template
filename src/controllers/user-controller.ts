@@ -58,7 +58,6 @@ async function logoutUser(req: Request, res: Response) {
 
 async function updateUserInfo(req: Request, res: Response) {
   const { username, newUsername } = req.body;
-  console.log(req.body);
   try {
     const newUser = await User.findOneAndUpdate(
       { username },
@@ -70,9 +69,33 @@ async function updateUserInfo(req: Request, res: Response) {
   }
 }
 
-async function getUserProfile(req: Request, res: Response) {}
+async function getUserProfile(req: Request, res: Response) {
+  const { username } = req.body;
+  try {
+    const user = await User.findOne({ username });
+    if (!user) {
+      res.status(404).send('We could not find that user');
+    }
+    res.send(user).status(200);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Something went wrong');
+  }
+}
 
-async function deleteUserProfile(req: Request, res: Response) {}
+async function deleteUserProfile(req: Request, res: Response) {
+  const { username } = req.body;
+  try {
+    const user = await User.findOneAndDelete({ username });
+    if (!user) {
+      res.status(404).send('We could not find that user');
+    }
+    res.send(user).status(200);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send('Something went wrong');
+  }
+}
 
 export {
   createUser,

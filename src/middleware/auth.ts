@@ -4,8 +4,6 @@ import jwt from 'jsonwebtoken';
 import { keys } from '../config/keys';
 import { Request, Response } from 'express';
 
-import { IUser } from '../interfaces/user-interface';
-
 //now the jwt get an user obj, not an string
 async function auth(req: Request, res: Response, next: Function) {
   try {

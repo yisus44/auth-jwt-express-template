@@ -25,6 +25,6 @@ userRouter.get('/user/me', auth, getUserProfile);
 userRouter.delete('user/delete', auth, deleteUserProfile);
 
 userRouter.get('/', function (req, res) {
-  res.send('hola amlo');
+  res.send('hola esquizo');
 });
 export { userRouter };
